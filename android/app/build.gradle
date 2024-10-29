@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.login_cadastro"
+    namespace = "com.example.cadastro_firebase"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.login_cadastro"
+        applicationId = "com.example.cadastro_firebase"
         minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
