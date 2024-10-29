@@ -1,29 +1,22 @@
-import 'package:flutter/material.dart';
-import 'pages/tela.dart';
-import 'pages/home.dart';
+import 'package:flutter/material.dart'; // Importa o pacote principal do Flutter para construir a interface do usuário
+import 'package:firebase_core/firebase_core.dart'; // Importa o pacote para inicializar o Firebase
+import 'pages/login.dart'; // Importa o arquivo 'login.dart' que provavelmente contém a tela de login
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Garante que a ligação dos widgets do Flutter esteja inicializada antes de usar qualquer plugin
+  await Firebase.initializeApp(); // Inicializa o Firebase na aplicação
+  runApp(const MyApp()); // Executa a aplicação iniciando pela classe MyApp
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); // Construtor da classe MyApp com uma chave opcional
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      initialRoute: '/',
-      routes: {
-        '/login': (context) => const tela(title: 'juan'),
-        '/': (context) => const Home(),
-        // '/cadastro': (context) => const Cadastro(),
-        // '/home': (context) => const Home()
-      },
+      theme: ThemeData.dark(), // Define o tema da aplicação como escuro
+      home: LoginScreen(), // Define a tela inicial como LoginScreen (definida em 'login.dart')
+      debugShowCheckedModeBanner: false, // Remove o banner de "debug" no canto superior direito
     );
   }
 }
-
